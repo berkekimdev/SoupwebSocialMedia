@@ -5,7 +5,6 @@ import { MdGroups } from "react-icons/md";
 import { AiOutlineShop } from "react-icons/ai";
 import { MdOutlineOndemandVideo, MdOutlineExpandMore } from "react-icons/md";
 import { BsStopwatch } from "react-icons/bs";
-import Image from "next/image";
 import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
