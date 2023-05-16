@@ -21,14 +21,15 @@ const Post = ({ post }) => {
     hiddenFileInput.current.click();
   };
 
-  const changeColor = () => {
-    var text = document.getElementById("myText");
-    if (text.style.color === "black") {
-      text.style.color = "blue";
-    } else {
-      text.style.color = "black";
+  const [textColor, setTextColor] = useState("black");
+
+  const textLike = () => {
+    if (textColor === "black") {
+      setTextColor("blue");
+    } else if (textColor === "blue") {
+      setTextColor("black");
     }
-  }
+  };
 
   return (
     <div className="flex flex-col" key={post.id}>
@@ -69,15 +70,14 @@ const Post = ({ post }) => {
       </div>
       {/* Footer */}
       <div className="flex items-center justify-center bg-white p-2">
-      {changeColor && (
         <div
           className="flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer"
-          id="myText"
+          style={{ color: textColor }}
+          onClick={textLike}
         >
           <FiThumbsUp className="h-4" />
           <p className="text-xs sm:text-base">Beğen</p>
         </div>
-        )}
         <div className="flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer">
           <RiShareForwardLine className="h-4" />
           <p className="text-xs sm:text-base">Paylaş</p>
