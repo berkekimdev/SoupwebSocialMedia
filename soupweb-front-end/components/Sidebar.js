@@ -5,6 +5,7 @@ import { MdGroups } from "react-icons/md";
 import { AiOutlineShop } from "react-icons/ai";
 import { MdOutlineOndemandVideo, MdOutlineExpandMore } from "react-icons/md";
 import { BsStopwatch } from "react-icons/bs";
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
@@ -24,7 +25,9 @@ const Sidebar = () => {
         </p>
       </div>
       <div className="flex flex-col gap-4 mt-4">
-        <Sidebaritem Icon={ImUsers} value="Arkadaşlar" />
+        <a href="/Friends">
+        <Sidebaritem Icon={ImUsers} value="Arkadaşlar"/>
+        </a>
         <Sidebaritem Icon={MdGroups} value="Gruplar" />
         <Sidebaritem Icon={AiOutlineShop} value="Market" />
         <Sidebaritem Icon={MdOutlineOndemandVideo} value="İzle" />

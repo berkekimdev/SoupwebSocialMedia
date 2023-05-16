@@ -121,7 +121,65 @@ const CreatePost = () => {
             hidden
           />
         </div>
+        <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+          <BsEmojiSmile className="text-yellow-400" size={20} />
+          <p
+            className="font-semibold text-gray-600"
+            onClick={handleButtonClick}
+          >
+            Durum/Düşünce
+          </p>
+        </div>
       </div>
+      {showInputs && (
+        <div className="grid grid-cols-3 gap-2">
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😀 çok mutlu
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😊 sevimli
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              🙂 mutlu
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😍 aşık
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😎 emin
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😂 eğlenceli
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😆 üzgün
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😉 anlayışlı
+            </span>
+          </div>
+          <div className="flex items-center p-1 space-x-1 flex-grow justify-center hover:cursor-pointer hover:bg-gray-100 rounded-md">
+            <span role="img" aria-label="Emoji">
+              😋 lezziz
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

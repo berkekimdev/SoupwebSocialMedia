@@ -1,10 +1,17 @@
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 import Feed from "./Feed";
-
+import Header from "./Header";
+import RightSidebar from "../components/RightSidebar";
+import Sidebar from "../components/Sidebar";
+import Profile from "./Profile";
 import Login from "./Login";
+import Register from "./Register";
 
 import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UpdateProfile from "./UpdateProfile";
 
 export default function Home({ session }) {
   if (!session) return <Login />;
