@@ -44,10 +44,10 @@ const Register = () => {
                 name="email"
               />
               <input
-                type="text"
+                type="password"
                 className="border-gray-300 focus:border-green-700 focus:outline-none focus:ring-2 focus:ring-green-600
                 flex-1 outline-none border-[1px] border-solid border-lightgray rounded-[8px] p-2 bg-gray-100"
-                placeholder="Fotoğraf Url"
+                placeholder="Şifre"
                 name="avatar"
               />
 
@@ -55,7 +55,7 @@ const Register = () => {
                 type="password"
                 className="border-gray-300 focus:border-green-700 focus:outline-none focus:ring-2 focus:ring-green-600
                 flex-1 outline-none border-[1px] border-solid border-lightgray rounded-[8px] p-[10px] bg-gray-100"
-                placeholder="Şifre"
+                placeholder="Şifre Tekrar"
                 name="password"
               />
             </div>
@@ -70,13 +70,13 @@ const Register = () => {
               <a
                 onClick={signIn}
                 className="border border-gray-300 bg-white text-gray-800 py-2 px-4 rounded-md hover:bg-blue-600  hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer"
-                href="/#_=_"
+                href="http://localhost:3000/#_=_"
               >
                 Facebook ile devam edin
               </a>
               <div className="p-5">
                 Zaten SoupWeb'e üye misiniz? &nbsp;
-                <a href="/Login" target="_self" className="text-blue-600 hover:underline cursor-pointer">
+                <a href="http://localhost:3000/#_=_" target="_self" className="text-blue-600 hover:underline cursor-pointer">
                   Giriş yapın.
                 </a>
               </div>

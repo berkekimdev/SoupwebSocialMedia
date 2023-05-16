@@ -21,13 +21,13 @@ const Post = ({ post }) => {
     hiddenFileInput.current.click();
   };
 
-  const [textColor, setTextColor] = useState("black");
+  const [textColor, setTextColor] = useState('black');
 
   const textLike = () => {
-    if (textColor === "black") {
-      setTextColor("blue");
-    } else if (textColor === "blue") {
-      setTextColor("black");
+    if (textColor === 'black') {
+      setTextColor('blue');
+    } else if (textColor === 'blue') {
+      setTextColor('black');
     }
   };
 
@@ -79,11 +79,16 @@ const Post = ({ post }) => {
           <p className="text-xs sm:text-base">Beğen</p>
         </div>
         <div className="flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer">
+          <FaRegCommentAlt className="h-4" />
+          <p className="text-xs sm:text-base">Yorum</p>
+        </div>
+        <div className="flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer">
           <RiShareForwardLine className="h-4" />
           <p className="text-xs sm:text-base">Paylaş</p>
         </div>
       </div>
       {/*  */}
+      
     </div>
   );
 };

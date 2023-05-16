@@ -14,6 +14,7 @@ const Feed = () => {
       {/* Left Sidebar */}
       <Sidebar />
       <div className="flex-grow object-cover h-screen rounded-[50px] p-28 pt-6 mr-6 overflow-y-auto no-scrollbar">
+  
         <div className="mx-auto max-w-md md:max-w-xl lg:max-w-5xl pt-6">
           {/* Create Box */}
           <CreatePost />

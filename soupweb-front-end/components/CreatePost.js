@@ -2,11 +2,12 @@ import Image from "next/image";
 import { React, useState, useRef } from "react";
 import { HiOutlineVideoCamera } from "react-icons/hi";
 import { IoMdPhotos } from "react-icons/io";
+import { BsEmojiSmile } from "react-icons/bs";
 import { useSession } from "next-auth/react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import axios from "axios";
-import { addPost } from "../public/src/features/postSlice";
-import { useDispatch } from "react-redux";
+import { addPost, selectPost } from "../public/src/features/postSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const CreatePost = () => {
   const FACEBOOK_CLONE_ENDPOINT = "http://localhost:8080/api/v1/post";
@@ -120,9 +121,7 @@ const CreatePost = () => {
             hidden
           />
         </div>
-        {/*  */}
       </div>
-      
     </div>
   );
 };
