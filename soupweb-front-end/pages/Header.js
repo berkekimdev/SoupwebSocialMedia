@@ -14,7 +14,7 @@ const Header = () => {
     <div className="sticky z-50 flex h-16 bg-orange-200 items-center p-2 shadow-md top-0 w-screen">
       {/* Left */}
       <div className="flex min-w-fit">
-        <a href="/Feed">
+        <a href="http://localhost:3000/">
           <img
             className="cursor-pointer "
             height={55}
@@ -37,7 +37,7 @@ const Header = () => {
       <div className="flex flex-grow justify-center mx-2">
         <div className="flex items-center">
           <div className="flex items-center  h-14 px-4 md:px-10 rounded-md md:hover:bg-orange-100 cursor-pointer">
-            <a href="/Feed">
+            <a href="http://localhost:3000/#_=_">
               <HiOutlineHome className="mx-auto text-green-700" size={25} />
             </a>
           </div>
@@ -96,7 +96,7 @@ const Header = () => {
         <IoLogOutOutline
           size={20}
           onClick={signOut}
-          href="localhost:3000"
+          href="http://localhost:3000/#_=_"
           type="submit"
           className=" hidden lg:inline-flex h-10 w-10  bg-orange-200 text-gray-600 rounded-full p-2 cursor-pointer md:hover:bg-orange-100"
         />
