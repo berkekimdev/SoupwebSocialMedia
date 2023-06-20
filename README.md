@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SoupWeb
+SoupWeb, [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) ile oluşturuşmuş bir [Next.js](https://nextjs.org/) projesidir.
+Aynı zamanda back-end olarak [Springboot](https://start.spring.io/) kullanmaktadır.
+Veri tabanı olaradak da [MySQL](https://dev.mysql.com/downloads/installer/) kullanılmaktadır.
+<br>
+`src\main\java\com\project\soupweb` dizininden backend kodlarına ulaşabilirsiniz.
+<br>
 
-## Getting Started
+## Next.js Projesi Oluşturma
+![](/pictures/nextjs_create.PNG) 
+Versiyona göre değişiklik gösterebilir!
 
+## Projeyi Başlatırken
 
-First, run the development server: 
-
+İlk olarak, geliştirme sunucusunu çalıştırın:
 
 ```bash
 npm run dev
-# or
+# ya da
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Geliştirme sunucusu, tarayıcınızda [http://localhost:3000](http://localhost:3000) adresinde çalışır.
+`pages/index.js` sayfasını düzenleyerek geliştirme işlemine başlayabilirsiniz. Bu sayfa, sizin değişikliklerinizin otomatik ve run-time olarak değişir.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Arka uç birim Springboot:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[Springboot](https://start.spring.io/) projesi, tarayıcınızda [http://localhost:8080](http://localhost:8080) adresinde çalışır.
+Springboot proje özelliklerini görebilmek için `target/classes/application.properties` dizininden `application.properties` dosyasına göz atabilirsiniz.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Veri tabanına entegrasyonu başarılı bir şekilde sağlayabilmek için `application.properties` dosyası önemlidir.
+[MySQL](https://dev.mysql.com/downloads/installer/), yerel adres olarak [mysql://localhost:3306/{{databaseName}}](http://localhost:3306/) adresini kullanır. MySQL'in Springboot içerisinde düzgün bir şekilde tanımlanabilmesi için oluşturulacak veri tabanı adı ile birlikte `application.properties` dosyasına veri tabanı username'i ve passwordu ile tanımlanmalıdır. 
 
-## Learn More
+`{{databaseName}}` sizin istediğiniz isimde bir veri tabanını temsil eder ve Springboot projesini başlatmadan önce aşağı kısımda belirtildiği gibi kendi MySQL Workbench'imizde {{databaseName}} isimli bir veri tabanı oluşturulmalıdır. 
 
-To learn more about Next.js, take a look at the following resources:
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/soupweb_database
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto = update
+spring.servlet.multipart.enabled=true
+```
+## Docker İçin Yapılması Gerekenler
+```
+docker pull sudkostik/soupweb-image:latest
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Docker ile sudkostik/soupweb-image adındaki latest sürümünü kullanarak soupweb projesini kurmak için aşağıdaki adımları takip edebilirsiniz:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Bilgisayarınıza Docker'ı kurun. Docker Desktop veya Docker Engine kullanabilirsiniz. Docker web sitesi üzerinden indirme sayfasına gidin ve işletim sisteminize uygun sürümü indirin ve kurulumu tamamlayın.
 
-## Deploy on Vercel
+Docker CLI (Command Line Interface) kullanarak sudkostik/soupweb-image Docker imajını çekin. Aşağıdaki komutu çalıştırın:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+arduino
+Copy code
+docker pull sudkostik/soupweb-image:latest
+Docker imajını çalıştırmak için aşağıdaki komutu kullanın:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+arduino
+Copy code
+docker run -p 8080:8080 --name soupweb-container -d sudkostik/soupweb-image:latest
+Bu komut, 8080 portunu yerel makinenizdeki 8080 porta yönlendirerek SoupWeb uygulamasını çalıştıran bir Docker konteyneri oluşturacaktır.
+
+Tarayıcınızı açın ve http://localhost:8080/ adresini ziyaret ederek SoupWeb uygulamasına erişin.
+
+Projeyi sonlandırmak ve Docker konteynerini durdurmak için aşağıdaki komutu kullanın:
+
+arduino
+Copy code
+docker stop soupweb-container
+Bu adımları takip ederek sudkostik/soupweb-image Docker imajıyla soupweb projesini kolayca kurabilir ve çalıştırabilirsiniz.
+
+
+## Gereksinimler Rest API Testi
+![](/pictures/SoupWebFullApiTest.PNG) 
